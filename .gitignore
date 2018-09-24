@@ -23,6 +23,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore RVM/RBenv configuration files
+# Ignore developer-specifig configuration files
 /.ruby-version
 /.ruby-gemset
+/config/database.yml
