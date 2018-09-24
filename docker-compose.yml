@@ -3,6 +3,7 @@ volumes:
   bundle: { driver: local }
   node_modules: { driver: local }
   config: { driver: local }
+  postgres-data: { driver: local }
 services:
   app:
     image: alpinelab/ruby-dev:2.5.1
@@ -12,3 +13,9 @@ services:
       - bundle:/bundle
       - node_modules:/app/node_modules
       - config:/config
+    links:
+      - postgres
+  postgres:
+    image: postgres:10.5
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
