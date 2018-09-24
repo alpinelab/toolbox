@@ -24,6 +24,4 @@
 /config/master.key
 
 # Ignore developer-specifig configuration files
-/.ruby-version
-/.ruby-gemset
 /config/database.yml
