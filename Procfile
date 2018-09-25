@@ -1,1 +1,1 @@
-web: bundle exec rails server -b 0.0.0.0
+web: bundle exec rails server -b ${RAILS_SERVER_LISTEN:-localhost}
