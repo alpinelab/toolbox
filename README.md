@@ -1,24 +1,15 @@
-# README
+# AlpineLab toolbox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Website built by AlpineLab, for AlpineLab developpers,
+to share advices, best practices, ideas and tips about gems.
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+App inspired by <a href="https://www.ruby-toolbox.com/">**Ruby toolbox**</a>, customised to our needs.
 
-* System dependencies
+## License
 
-* Configuration
+This project is developed by [Alpine Lab](https://www.alpine-lab.com)
+and released under the terms of the [MIT license](LICENSE.md).
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<a href="https://www.alpine-lab.com"><img src=".github/alpinelab-logo.png" width="40%" /></a>
