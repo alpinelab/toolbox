@@ -13,7 +13,9 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
+  gem "alpinelab-codestyle", "~> 0.4"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "rubocop", "~> 0.59"
 end
 
 group :development do

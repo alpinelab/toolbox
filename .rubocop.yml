@@ -1,0 +1,4 @@
+inherit_gem:
+  alpinelab-codestyle:
+    - config/default.yml
+    - config/rails.yml
