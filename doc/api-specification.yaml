@@ -202,6 +202,3 @@ definitions:
       published:
         type: boolean
         example: true
-externalDocs:
-  description: Find out more about Swagger
-  url: 'http://swagger.io'
