@@ -103,12 +103,18 @@ paths:
           description: Comment not found
       security:
         - APIKeyHeader: []
-  "/comments":
+  /comments:
     get:
       tags:
         - comment
       summary: Find all comments
       description: Returns all comment
+      parameters:
+        - name: dependencyId
+          in: path
+          description: ID of dependency
+          required: true
+          type: integer
       responses:
         "200":
           description: Successful operation
@@ -123,11 +129,11 @@ paths:
     post:
       tags:
         - comment
-      summary: create a comment
+      summary: Create comment
+      description: Add a new comment to dependency
       parameters:
         - name: body
           in: body
-          description: Payload
           required: true
           schema:
             type: object
@@ -180,6 +186,8 @@ definitions:
       - body
       - dependency_id
     properties:
+      dependency_id:
+        type: integer
       id:
         type: integer
       body:
