@@ -1,13 +1,7 @@
 swagger: '2.0'
 info:
-  description: API AlpineLab toolbox
   version: 0.1.0
   title: Toolbox
-  contact:
-    email: dev@alpine-lab.com
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: 'localhost:5000'
 basePath: /
 tags:
@@ -210,6 +204,3 @@ definitions:
       published:
         type: boolean
         example: true
-externalDocs:
-  description: Find out more about Swagger
-  url: 'http://swagger.io'
