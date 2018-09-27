@@ -16,6 +16,10 @@ tags:
     description: Access to Dependencies Comments
 schemes:
   - http
+consumes:
+  - application/json
+produces:
+  - application/json
 paths:
   '/dependencies/{dependencies_id}':
     get:
@@ -24,8 +28,6 @@ paths:
       summary: Find dependency by ID
       description: Returns a single dependency
       operationId: getDependencyById
-      produces:
-        - application/json
       parameters:
         - name: dependencies_id
           in: path
@@ -46,8 +48,6 @@ paths:
       summary: Find all dependencies
       description: Returns all dependencies
       operationId: getDependencies
-      produces:
-        - application/json
       responses:
         '200':
           description: successful operation
@@ -61,10 +61,6 @@ paths:
       summary: Add a new dependency to the toolbox
       description: ''
       operationId: addDependency
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - name: body
           in: body
@@ -91,8 +87,6 @@ paths:
       summary: Find comment by ID
       description: Returns a single comment
       operationId: getCommentById
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
@@ -118,8 +112,6 @@ paths:
       summary: Find all comments
       description: Returns all comment
       operationId: getComments
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
@@ -141,10 +133,6 @@ paths:
       summary: create a comment
       description: ''
       operationId: addComment
-      consumes:
-        - appplication/json
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
