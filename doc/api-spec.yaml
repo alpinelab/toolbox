@@ -1,0 +1,71 @@
+swagger: '2.0'
+
+info:
+  version: 0.1.0
+  title: Toolbox
+
+host: 'localhost:5000'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  Dependency:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        example: Rubocop
+    required:
+      - name
+
+paths:
+  '/dependencies/{dependencies_id}':
+    get:
+      parameters:
+        - name: dependencies_id
+          in: path
+          description: ID of dependency to return
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dependency'
+        '404':
+          description: Dependency not found
+  /dependencies:
+    post:
+      parameters:
+        - name: dependency
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Dependency'
+      responses:
+        '201':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dependency'
+        '422':
+          description: Invalid input
+
+  /foo:
+    post:
+      parameters:
+        - name: bar
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
