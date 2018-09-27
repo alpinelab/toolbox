@@ -31,5 +31,8 @@ module Toolbox
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.use Committee::Middleware::RequestValidation,
+      schema: YAML.load(File.read("doc/swagger.yaml"))
   end
 end
