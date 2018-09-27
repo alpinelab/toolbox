@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DependenciesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_dependency, only: %i[show edit update destroy]
 
   # GET /dependencies
