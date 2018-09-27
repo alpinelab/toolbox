@@ -32,4 +32,7 @@ module Toolbox
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
+  Error = Class.new(StandardError)
+  NotAuthenticatedError = Class.new(Error)
 end
