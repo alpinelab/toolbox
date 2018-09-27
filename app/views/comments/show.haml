@@ -7,7 +7,7 @@
   = @comment.published
 %p
   %strong Dependency:
-  = @comment.dependency
+  = @comment.dependency.name
 = link_to "Edit", edit_comment_path(@comment)
 |
 = link_to "Back", comments_path

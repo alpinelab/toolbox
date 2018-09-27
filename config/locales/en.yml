@@ -1,1 +1,6 @@
 en:
+  activerecord:
+    models:
+      comment:
+        one: comment
+        other: comments

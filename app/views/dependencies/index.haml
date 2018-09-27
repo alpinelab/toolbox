@@ -9,8 +9,11 @@
     - @dependencies.each do |dependency|
       %tr
         %td= dependency.name
+        %td= "#{dependency.comments.count} #{Comment.model_name.human(count: dependency.comments.count)}"
         %td= link_to "Show", dependency
         %td= link_to "Edit", edit_dependency_path(dependency)
         %td= link_to "Destroy", dependency, method: :delete, data: { confirm: "Are you sure?" }
 %br
 = link_to "New Dependency", new_dependency_path
+= link_to "New Comment", new_comment_path
+= link_to "See Comments", comments_path

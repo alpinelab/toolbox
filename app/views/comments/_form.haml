@@ -15,6 +15,6 @@
     = form.check_box :published
   .field
     = form.label :dependency_id
-    = form.text_field :dependency_id
+    = form.select :dependency_id, Dependency.all.map { |d| [d.name, d.id]}
   .actions
     = form.submit

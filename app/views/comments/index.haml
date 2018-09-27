@@ -12,9 +12,10 @@
       %tr
         %td= comment.body
         %td= comment.published
-        %td= comment.dependency
+        %td= comment.dependency.name
         %td= link_to "Show", comment
         %td= link_to "Edit", edit_comment_path(comment)
         %td= link_to "Destroy", comment, method: :delete, data: { confirm: "Are you sure?" }
 %br
 = link_to "New Comment", new_comment_path
+= link_to "Back to dependencies", dependencies_path
