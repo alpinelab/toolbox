@@ -31,5 +31,12 @@ module Toolbox
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # config.middleware.use Committee::Middleware::RequestValidation.new( schema: super_driver)
+
+    # Introduce comittee middleware
+    config.middleware.use Committee::Middleware::RequestValidation,
+      schema: Committee::Drivers::OpenAPI2.new.parse(
+        YAML.load(File.read("doc/swagger.yaml"))
+      )
   end
 end

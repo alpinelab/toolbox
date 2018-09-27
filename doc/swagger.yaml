@@ -15,6 +15,10 @@ tags:
     description: Everything about Dependencies
   - name: comment
     description: Access to Dependencies Comments
+produces:
+  - application/json
+consumes:
+  - application/json
 schemes:
   - http
 paths:
@@ -25,15 +29,12 @@ paths:
       summary: Find dependency by ID
       description: Returns a single dependency
       operationId: getDependencyById
-      produces:
-        - application/json
       parameters:
         - name: dependencies_id
           in: path
           description: ID of dependency to return
           required: true
           type: integer
-          format: int64
       responses:
         '200':
           description: successful operation
@@ -48,8 +49,6 @@ paths:
       summary: Find all dependencies
       description: Returns all dependencies
       operationId: getDependencies
-      produces:
-        - application/json
       responses:
         '200':
           description: successful operation
@@ -63,10 +62,6 @@ paths:
       summary: Add a new dependency to the toolbox
       description: ''
       operationId: addDependency
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - name: body
           in: body
@@ -93,21 +88,17 @@ paths:
       summary: Find comment by ID
       description: Returns a single comment
       operationId: getCommentById
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
           description: ID of dependency
           required: true
           type: integer
-          format: int64
         - name: commentId
           in: path
           description: ID of comment to return
           required: true
           type: integer
-          format: int64
       responses:
         '200':
           description: successful operation
@@ -122,15 +113,12 @@ paths:
       summary: Find all comments
       description: Returns all comment
       operationId: getComments
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
           description: ID of dependency
           required: true
           type: integer
-          format: int64
       responses:
         '200':
           description: successful operation
@@ -146,17 +134,12 @@ paths:
       summary: create a comment
       description: ''
       operationId: addComment
-      consumes:
-        - appplication/json
-      produces:
-        - application/json
       parameters:
         - name: dependencyId
           in: path
           description: ID of dependency to create a new comment
           required: true
           type: integer
-          format: int64
         - name: body
           in: body
           description: payload
@@ -188,7 +171,6 @@ definitions:
     properties:
       id:
         type: integer
-        format: int64
       name:
         type: string
         example: Rubocop
@@ -203,7 +185,6 @@ definitions:
     properties:
       id:
         type: integer
-        format: int64
       body:
         type: string
         example: Hello world !
