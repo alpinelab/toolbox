@@ -29,14 +29,14 @@ module Toolbox
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # introduce comittee middleware
-    driver = Committee::Drivers::OpenAPI2.new
-    driver.parse YAML.load(File.read("doc/swagger.yaml"))
-
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # config.middleware.use Committee::Middleware::RequestValidation.new( schema: super_driver)
 
+    # Introduce comittee middleware
     config.middleware.use Committee::Middleware::RequestValidation,
-      schema: YAML.load(File.read("doc/swagger.yaml"))
+      schema: Committee::Drivers::OpenAPI2.new.parse(
+        YAML.load(File.read("doc/swagger.yaml"))
+      )
   end
 end
