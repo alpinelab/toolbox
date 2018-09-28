@@ -152,7 +152,7 @@ paths:
 securityDefinitions:
   APIKeyHeader:
     type: apiKey
-    name: AuthToken
+    name: Auth-Token
     in: header
 definitions:
   Dependency:
