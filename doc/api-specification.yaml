@@ -126,11 +126,15 @@ paths:
                 $ref: "#/definitions/Comment/properties/body"
               published:
                 $ref: "#/definitions/Comment/properties/published"
+              dependency_id:
+                $ref: "#/definitions/Comment/properties/dependency_id"
       responses:
         "200":
           description: Successful operation
           schema:
             $ref: "#/definitions/Comment"
+        "422":
+          description: Invalid input
       security:
         - APIKeyHeader: []
 securityDefinitions:
@@ -143,6 +147,7 @@ definitions:
     type: object
     required:
       - name
+      - comments
     properties:
       id:
         type: integer
@@ -153,10 +158,17 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Comment"
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
   Comment:
     type: object
     required:
       - body
+      - dependency_id
     properties:
       id:
         type: integer
@@ -166,3 +178,11 @@ definitions:
       published:
         type: boolean
         example: true
+      dependency_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
