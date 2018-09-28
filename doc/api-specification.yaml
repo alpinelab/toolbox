@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   description: API AlpineLab toolbox
   version: 0.1.0
@@ -7,8 +7,8 @@ info:
     email: dev@alpine-lab.com
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: 'localhost:5000'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:5000"
 tags:
   - name: dependency
     description: Everything about Dependencies
@@ -21,7 +21,7 @@ consumes:
 produces:
   - application/json
 paths:
-  '/dependencies/{dependencies_id}':
+  "/dependencies/{dependencies_id}":
     get:
       tags:
         - dependency
@@ -34,11 +34,11 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Dependency'
-        '404':
+            $ref: "#/definitions/Dependency"
+        "404":
           description: Dependency not found
   /dependencies:
     get:
@@ -47,12 +47,12 @@ paths:
       summary: Find all dependencies
       description: Returns all dependencies
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Dependency'
+              $ref: "#/definitions/Dependency"
     post:
       tags:
         - dependency
@@ -66,17 +66,17 @@ paths:
             type: object
             properties:
               name:
-                $ref: '#/definitions/Dependency/properties/name'
+                $ref: "#/definitions/Dependency/properties/name"
       responses:
-        '201':
+        "201":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Dependency'
-        '422':
+            $ref: "#/definitions/Dependency"
+        "422":
           description: Invalid input
       security:
         - APIKeyHeader: []
-  '/dependencies/{dependencyId}/comments/{commentId}':
+  "/dependencies/{dependencyId}/comments/{commentId}":
     get:
       tags:
         - comment
@@ -94,13 +94,13 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Comment'
-        '404':
+            $ref: "#/definitions/Comment"
+        "404":
           description: Comment not found
-  '/dependencies/{dependencyId}/comments':
+  "/dependencies/{dependencyId}/comments":
     get:
       tags:
         - comment
@@ -113,13 +113,13 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Comment'
-        '404':
+              $ref: "#/definitions/Comment"
+        "404":
           description: Comment not found
     post:
       tags:
@@ -139,14 +139,14 @@ paths:
             type: object
             properties:
               body:
-                $ref: '#/definitions/Comment/properties/body'
+                $ref: "#/definitions/Comment/properties/body"
               published:
-                $ref: '#/definitions/Comment/properties/published'
+                $ref: "#/definitions/Comment/properties/published"
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Comment'
+            $ref: "#/definitions/Comment"
       security:
         - APIKeyHeader: []
 securityDefinitions:
@@ -168,7 +168,7 @@ definitions:
       comments:
         type: array
         items:
-          $ref: '#/definitions/Comment'
+          $ref: "#/definitions/Comment"
   Comment:
     type: object
     required:
