@@ -21,14 +21,14 @@ consumes:
 produces:
   - application/json
 paths:
-  "/dependencies/{dependencies_id}":
+  "/dependencies/{id}":
     get:
       tags:
         - dependency
       summary: Find dependency by ID
       description: Returns a single dependency
       parameters:
-        - name: dependencies_id
+        - name: id
           in: path
           description: ID of dependency to return
           required: true
@@ -76,19 +76,14 @@ paths:
           description: Invalid input
       security:
         - APIKeyHeader: []
-  "/dependencies/{dependencyId}/comments/{commentId}":
+  "/comments/{id}":
     get:
       tags:
         - comment
       summary: Find comment by ID
       description: Returns a single comment
       parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency
-          required: true
-          type: integer
-        - name: commentId
+        - name: id
           in: path
           description: ID of comment to return
           required: true
@@ -100,18 +95,12 @@ paths:
             $ref: "#/definitions/Comment"
         "404":
           description: Comment not found
-  "/dependencies/{dependencyId}/comments":
+  "/comments":
     get:
       tags:
         - comment
       summary: Find all comments
       description: Returns all comment
-      parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency
-          required: true
-          type: integer
       responses:
         "200":
           description: Successful operation
@@ -126,11 +115,6 @@ paths:
         - comment
       summary: create a comment
       parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency to create a new comment
-          required: true
-          type: integer
         - name: body
           in: body
           description: Payload
