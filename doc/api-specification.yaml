@@ -34,7 +34,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           schema:
             $ref: '#/definitions/Dependency'
         '404':
@@ -50,7 +50,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           schema:
             type: array
             items:
@@ -59,7 +59,6 @@ paths:
       tags:
         - dependency
       summary: Add a new dependency to the toolbox
-      description: ''
       operationId: addDependency
       consumes:
         - application/json
@@ -68,7 +67,7 @@ paths:
       parameters:
         - name: body
           in: body
-          description: payload
+          description: Payload
           required: true
           schema:
             type: object
@@ -77,7 +76,7 @@ paths:
                 $ref: '#/definitions/Dependency/properties/name'
       responses:
         '201':
-          description: sucessful operation
+          description: Successful operation
           schema:
             $ref: '#/definitions/Dependency'
         '422':
@@ -106,7 +105,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           schema:
             $ref: '#/definitions/Comment'
         '404':
@@ -128,7 +127,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           schema:
             type: array
             items:
@@ -139,7 +138,6 @@ paths:
       tags:
         - comment
       summary: create a comment
-      description: ''
       operationId: addComment
       consumes:
         - appplication/json
@@ -153,7 +151,7 @@ paths:
           type: integer
         - name: body
           in: body
-          description: payload
+          description: Payload
           required: true
           schema:
             type: object
@@ -164,7 +162,7 @@ paths:
                 $ref: '#/definitions/Comment/properties/published'
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           schema:
             $ref: '#/definitions/Comment'
       security:
