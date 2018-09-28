@@ -1,0 +1,17 @@
+# FROM apiaryio/dredd:5.1.5
+# RUN apk add --no-cache --update ruby\
+# && gem install --no-document dredd_hooks json
+FROM ruby:2.5-alpine
+RUN apk add --update --virtual build-dependencies\
+      make\
+      gcc\
+      g++\
+      python\
+      git\
+ && apk add --update --no-cache\
+      nodejs\
+ && npm config set loglevel error\
+ && npm install dredd\
+ && apk del --purge build-dependencies\
+ && gem install --no-document dredd_hooks
+ENV PATH ${PATH}:/node_modules/.bin

@@ -21,3 +21,15 @@ services:
     image: postgres:10.5
     volumes:
       - postgres-data:/var/lib/postgresql/data
+  dredd:
+    build:
+      context: .
+      dockerfile: Dockerfile.dredd
+    working_dir: /app
+    entrypoint: ["dredd"]
+    command: ["-h"]
+    volumes:
+      - .:/app
+      - bundle:/bundle
+    links:
+      - app

@@ -16,10 +16,10 @@ tags:
     description: Access to Dependencies Comments
 schemes:
   - http
-consumes:
-  - application/json
 produces:
-  - application/json
+  - application/json; charset=utf-8
+consumes:
+  - application/json; charset=utf-8
 paths:
   "/dependencies/{id}":
     get:
@@ -33,6 +33,7 @@ paths:
           description: ID of dependency to return
           required: true
           type: integer
+          x-example: 1
       responses:
         "200":
           description: Successful operation
@@ -40,6 +41,8 @@ paths:
             $ref: "#/definitions/Dependency"
         "404":
           description: Dependency not found
+      security:
+        - APIKeyHeader: []
   /dependencies:
     get:
       tags:
@@ -53,6 +56,8 @@ paths:
             type: array
             items:
               $ref: "#/definitions/Dependency"
+      security:
+        - APIKeyHeader: []
     post:
       tags:
         - dependency
@@ -88,6 +93,7 @@ paths:
           description: ID of comment to return
           required: true
           type: integer
+          x-example: 1
       responses:
         "200":
           description: Successful operation
@@ -95,6 +101,8 @@ paths:
             $ref: "#/definitions/Comment"
         "404":
           description: Comment not found
+      security:
+        - APIKeyHeader: []
   "/comments":
     get:
       tags:
@@ -110,6 +118,8 @@ paths:
               $ref: "#/definitions/Comment"
         "404":
           description: Comment not found
+      security:
+        - APIKeyHeader: []
     post:
       tags:
         - comment
@@ -129,7 +139,7 @@ paths:
               dependency_id:
                 $ref: "#/definitions/Comment/properties/dependency_id"
       responses:
-        "200":
+        "201":
           description: Successful operation
           schema:
             $ref: "#/definitions/Comment"
