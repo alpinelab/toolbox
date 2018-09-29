@@ -13,6 +13,7 @@ gem "rails", "~> 5.2.1"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5.2"
 gem "uglifier", ">= 1.3.0"
+gem "webpacker", "~> 3.5"
 
 group :development, :test do
   gem "alpinelab-codestyle", "~> 0.5"
