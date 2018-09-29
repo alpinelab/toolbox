@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     end
     concerns :resources
   end
+
+  root to: "home#show"
 end
