@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Body:
+  = @comment.body
+%p
+  %strong Published:
+  = @comment.published
+%p
+  %strong Dependency:
+  = @comment.dependency
+= link_to "Edit", edit_comment_path(@comment)
+|
+= link_to "Back", comments_path
