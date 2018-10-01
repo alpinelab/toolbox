@@ -2,3 +2,10 @@ inherit_gem:
   alpinelab-codestyle:
     - config/default.yml
     - config/rails.yml
+
+AllCops:
+  inherit_mode:
+    merge:
+      - Exclude
+  Exclude:
+    - vendor/**/*
