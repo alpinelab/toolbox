@@ -1,0 +1,20 @@
+= form_with(model: comment) do |form|
+  - if comment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(comment.errors.count, "error")
+        prohibited this comment from being saved:
+      %ul
+        - comment.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :body
+    = form.text_area :body
+  .field
+    = form.label :published
+    = form.check_box :published
+  .field
+    = form.label :dependency_id
+    = form.text_field :dependency_id
+  .actions
+    = form.submit

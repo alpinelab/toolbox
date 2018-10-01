@@ -1,0 +1,8 @@
+%h1 AlpineLab toolbox
+%ul
+  - @dependencies.find_each do |dependency|
+    %li
+      = link_to(dependency.name, dependency)
+      %ul
+        - dependency.comments.published.find_each do |comment|
+          %li= comment.body
