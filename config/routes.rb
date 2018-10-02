@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   scope format: ENV.key?("ALLOW_FORMAT_FROM_URL") ? nil : false do
-    scope module: :api, constraints: ->(req) { req.format == :json } do
+    scope module: :api, constraints: -> (req) { req.format == :json } do
       concerns :resources
     end
     concerns :resources
