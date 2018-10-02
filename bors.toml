@@ -1,0 +1,2 @@
+status = ["continuous-integration/codeship"]
+timeout_sec = 3600
