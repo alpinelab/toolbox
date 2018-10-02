@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   description: API AlpineLab toolbox
   version: 0.1.0
@@ -7,8 +7,8 @@ info:
     email: dev@alpine-lab.com
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: 'localhost:5000'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:5000"
 tags:
   - name: dependency
     description: Everything about Dependencies
@@ -16,30 +16,33 @@ tags:
     description: Access to Dependencies Comments
 schemes:
   - http
-consumes:
-  - application/json
 produces:
-  - application/json
+  - application/json; charset=utf-8
+consumes:
+  - application/json; charset=utf-8
 paths:
-  '/dependencies/{dependencies_id}':
+  "/dependencies/{id}":
     get:
       tags:
         - dependency
       summary: Find dependency by ID
       description: Returns a single dependency
       parameters:
-        - name: dependencies_id
+        - name: id
           in: path
           description: ID of dependency to return
           required: true
           type: integer
+          x-example: 1
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Dependency'
-        '404':
+            $ref: "#/definitions/Dependency"
+        "404":
           description: Dependency not found
+      security:
+        - APIKeyHeader: []
   /dependencies:
     get:
       tags:
@@ -47,12 +50,14 @@ paths:
       summary: Find all dependencies
       description: Returns all dependencies
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Dependency'
+              $ref: "#/definitions/Dependency"
+      security:
+        - APIKeyHeader: []
     post:
       tags:
         - dependency
@@ -66,71 +71,60 @@ paths:
             type: object
             properties:
               name:
-                $ref: '#/definitions/Dependency/properties/name'
+                $ref: "#/definitions/Dependency/properties/name"
       responses:
-        '201':
+        "201":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Dependency'
-        '422':
+            $ref: "#/definitions/Dependency"
+        "422":
           description: Invalid input
       security:
         - APIKeyHeader: []
-  '/dependencies/{dependencyId}/comments/{commentId}':
+  "/comments/{id}":
     get:
       tags:
         - comment
       summary: Find comment by ID
       description: Returns a single comment
       parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency
-          required: true
-          type: integer
-        - name: commentId
+        - name: id
           in: path
           description: ID of comment to return
           required: true
           type: integer
+          x-example: 1
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Comment'
-        '404':
+            $ref: "#/definitions/Comment"
+        "404":
           description: Comment not found
-  '/dependencies/{dependencyId}/comments':
+      security:
+        - APIKeyHeader: []
+  "/comments":
     get:
       tags:
         - comment
       summary: Find all comments
       description: Returns all comment
-      parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency
-          required: true
-          type: integer
       responses:
-        '200':
+        "200":
           description: Successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Comment'
-        '404':
+              $ref: "#/definitions/Comment"
+        "404":
           description: Comment not found
+      security:
+        - APIKeyHeader: []
     post:
       tags:
         - comment
       summary: create a comment
       parameters:
-        - name: dependencyId
-          in: path
-          description: ID of dependency to create a new comment
-          required: true
-          type: integer
         - name: body
           in: body
           description: Payload
@@ -139,26 +133,31 @@ paths:
             type: object
             properties:
               body:
-                $ref: '#/definitions/Comment/properties/body'
+                $ref: "#/definitions/Comment/properties/body"
               published:
-                $ref: '#/definitions/Comment/properties/published'
+                $ref: "#/definitions/Comment/properties/published"
+              dependency_id:
+                $ref: "#/definitions/Comment/properties/dependency_id"
       responses:
-        '200':
+        "201":
           description: Successful operation
           schema:
-            $ref: '#/definitions/Comment'
+            $ref: "#/definitions/Comment"
+        "422":
+          description: Invalid input
       security:
         - APIKeyHeader: []
 securityDefinitions:
   APIKeyHeader:
     type: apiKey
-    name: AuthToken
+    name: Auth-Token
     in: header
 definitions:
   Dependency:
     type: object
     required:
       - name
+      - comments
     properties:
       id:
         type: integer
@@ -168,11 +167,18 @@ definitions:
       comments:
         type: array
         items:
-          $ref: '#/definitions/Comment'
+          $ref: "#/definitions/Comment"
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
   Comment:
     type: object
     required:
       - body
+      - dependency_id
     properties:
       id:
         type: integer
@@ -182,3 +188,11 @@ definitions:
       published:
         type: boolean
         example: true
+      dependency_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
