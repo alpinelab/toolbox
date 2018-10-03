@@ -16,7 +16,7 @@ gem "uglifier", ">= 1.3.0"
 gem "webpacker", "~> 3.5"
 
 group :development, :test do
-  gem "alpinelab-codestyle", "~> 0.5"
+  gem "alpinelab-codestyle", "~> 0.7"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry-rails", "~> 0.3"
   gem "rubocop", "~> 0.59"
