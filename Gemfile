@@ -6,7 +6,7 @@ ruby "2.5.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "haml", "~> 5.0"
-gem "jbuilder", "~> 2.5"
+gem "jbuilder", "~> 2.8"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
@@ -19,7 +19,7 @@ group :development, :test do
   gem "alpinelab-codestyle", "~> 0.7"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry-rails", "~> 0.3"
-  gem "rubocop", "~> 0.59"
+  gem "rubocop", "~> 0.60"
 end
 
 group :development do
