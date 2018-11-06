@@ -42,7 +42,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    alpinelab-codestyle (0.7.0)
+    alpinelab-codestyle (0.8.0)
     arel (9.0.0)
     ast (2.4.0)
     bindex (0.5.0)
@@ -190,7 +190,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  alpinelab-codestyle (~> 0.7)
+  alpinelab-codestyle (~> 0.8)
   bootsnap (>= 1.1.0)
   byebug
   haml (~> 5.0)
