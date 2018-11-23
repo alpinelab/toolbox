@@ -6,6 +6,7 @@ RUN apk add --update --virtual build-dependencies \
       g++ \
       python \
       git \
+      npm \
  && apk add --update --no-cache \
       nodejs \
  && npm config set loglevel error \
