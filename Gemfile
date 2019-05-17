@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby "2.5.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
-gem "haml", "~> 5.0"
+gem "haml", "~> 5.1"
 gem "jbuilder", "~> 2.9"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.12"
