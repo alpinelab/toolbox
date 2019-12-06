@@ -8,7 +8,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "haml", "~> 5.1"
 gem "jbuilder", "~> 2.9"
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.3"
 gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5.2"
