@@ -6,7 +6,7 @@ ruby "2.5.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "haml", "~> 5.1"
-gem "jbuilder", "~> 2.9"
+gem "jbuilder", "~> 2.10"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.3"
 gem "rails", "~> 5.2.4"
