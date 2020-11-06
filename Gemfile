@@ -19,7 +19,7 @@ group :development, :test do
   gem "alpinelab-codestyle", "~> 0.8"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry-rails", "~> 0.3"
-  gem "rubocop", "~> 0.67"
+  gem "rubocop", "~> 1.2"
 end
 
 group :development do
